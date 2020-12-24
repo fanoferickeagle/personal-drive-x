@@ -5,7 +5,6 @@ import time
 
 import aria2p
 import telegram.ext as tg
-from dotenv import load_dotenv
 import socket
 import faulthandler
 faulthandler.enable()
@@ -26,8 +25,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 LOGGER = logging.getLogger(__name__)
 
-load_dotenv('config.env')
-
 Interval = []
 
 
@@ -45,13 +42,6 @@ def mktable():
     except Error as e:
         LOGGER.error(e)
         exit(1)
-
-try:
-    if bool(getConfig('_____REMOVE_THIS_LINE_____')):
-        logging.error('The README.md file there to be read! Exiting now!')
-        exit()
-except KeyError:
-    pass
 
 aria2 = aria2p.API(
     aria2p.Client(
